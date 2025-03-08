@@ -6,6 +6,9 @@ import AuthModal from "./AuthModal";
 import logo from "../assets/logo.png";
 import avatar from "../assets/defaul-avatar.png";
 import { Link } from "react-router-dom";
+import LogoutIcon from '@mui/icons-material/Logout';
+import ListIcon from '@mui/icons-material/List';
+import PeopleIcon from '@mui/icons-material/People';
 
 const fontStyles = {
     fontFamily: "Open Sans, sans-serif",
@@ -44,8 +47,20 @@ const Header = () => {
                         </Box>
 
                         <Box sx={{ display: "flex", gap: 2 }}>
-                            <Button color="inherit" component={Link} to="/catalog" sx={buttonStyles}>Каталог</Button>
-                            <Button color="inherit" component={Link} to="/community" sx={buttonStyles}>Комьюнити</Button>
+                            <Button color="inherit"
+                                    component={Link}
+                                    to="/catalog"
+                                    sx={buttonStyles}>
+                                <ListIcon fontSize="small" sx={{ marginRight: 1 }} />
+                                Каталог
+                            </Button>
+                            <Button color="inherit"
+                                    component={Link}
+                                    to="/community"
+                                    sx={buttonStyles}>
+                                <PeopleIcon fontSize="small" sx={{ marginRight: 1 }} />
+                                Комьюнити
+                            </Button>
                         </Box>
 
                         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -55,9 +70,16 @@ const Header = () => {
                                         <Avatar src={avatar} alt="User Avatar" sx={{ width: 50, height: 50, marginRight: 1 }} />
                                         <Typography sx={fontStyles}>{user.username}</Typography>
                                     </Link>
-                                    <Button color="inherit" onClick={() => dispatch(logout())} sx={buttonStyles}>
+                                    <Button
+                                        color="inherit"
+                                        onClick={() => dispatch(logout())}
+                                        sx={buttonStyles}
+                                    >
                                         Выйти
+                                        <LogoutIcon fontSize="small" sx={{ marginLeft: 1 }} />
                                     </Button>
+
+
                                 </>
                             ) : (
                                 <>
