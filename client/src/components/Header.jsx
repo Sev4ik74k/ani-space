@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { AppBar, Toolbar, Typography, Button, Box, Container } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Box, Container, Avatar } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/userSlice";
 import AuthModal from "./AuthModal";
 import logo from "../assets/logo.png";
+import avatar from "../assets/defaul-avatar.png";
 import { Link } from "react-router-dom";
 
 const fontStyles = {
@@ -50,9 +51,10 @@ const Header = () => {
                         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                             {user ? (
                                 <>
-                                    <Button color="inherit" component={Link} to="/profile" sx={buttonStyles}>
-                                        {user.username}
-                                    </Button>
+                                    <Link to="/profile" style={{ display: "flex", alignItems: "center", color: "inherit" }}>
+                                        <Avatar src={avatar} alt="User Avatar" sx={{ width: 50, height: 50, marginRight: 1 }} />
+                                        <Typography sx={fontStyles}>{user.username}</Typography>
+                                    </Link>
                                     <Button color="inherit" onClick={() => dispatch(logout())} sx={buttonStyles}>
                                         Выйти
                                     </Button>
