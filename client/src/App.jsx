@@ -3,6 +3,7 @@ import Reviews from "./pages/Reviews";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/community" element={<Reviews />} />
                 <Route path="/catalog" element={<Catalog />} />
             </Routes>
+            <Footer />
         </Router>
     );
 }
