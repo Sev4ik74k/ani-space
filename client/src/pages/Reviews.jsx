@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchReviews } from "../store/reviewSlice";
-import { Container, Typography, Card, CardContent, CircularProgress } from "@mui/material";
+import {Container, Typography, Card, CardContent, CircularProgress, Box} from "@mui/material";
 
 const Reviews = () => {
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Reviews = () => {
     }, [dispatch]);
 
     return (
-        <Container maxWidth="md">
+        <Container maxWidth="md" sx={{ height: "100vh" }}>
             <Typography variant="h4" sx={{ marginTop: 4, marginBottom: 2 }}>
                 Отзывы пользователей
             </Typography>
@@ -23,7 +23,12 @@ const Reviews = () => {
             {reviews.map((review) => (
                 <Card key={review.id} sx={{ marginBottom: 2 }}>
                     <CardContent>
-                        <Typography variant="h6">{review.anime_title}</Typography>
+                        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                            <Typography variant="h6">{review.anime_title}</Typography>
+                            <Typography variant="caption" color="textSecondary">
+                                {new Date(review.created_at).toLocaleDateString()}
+                            </Typography>
+                        </Box>
                         <Typography variant="body2" color="textSecondary">
                             {review.username} – Оценка: {review.rating}/10
                         </Typography>

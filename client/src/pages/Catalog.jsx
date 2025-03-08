@@ -2,7 +2,7 @@ import { Container, Typography } from "@mui/material";
 
 const Catalog = () => {
     return (
-        <div>
+        <div style={{ height: '100vh' }}>
             <Container>
                 <Typography>
                     Catalog

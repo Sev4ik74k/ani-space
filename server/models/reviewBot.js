@@ -25,7 +25,7 @@ createReviewTable();
 module.exports = {
     async addReview(username, animeTitle, rating, comment) {
         const res = await pool.query(
-            "INSERT INTO reviews (username, anime_title, rating, comment) VALUES ($1, $2, $3, $4) RETURNING *",
+            "INSERT INTO reviews (username, anime_title, rating, comment) VALUES ($1, $2, $3, $4) RETURNING *, created_at",
             [username, animeTitle, rating, comment]
         );
         return res.rows[0];
