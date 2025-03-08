@@ -3,6 +3,16 @@ import { Modal, Box, TextField, Button, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { registerUser, loginUser } from "../store/userSlice";
 
+const fontStyles = {
+    fontFamily: "Open Sans, sans-serif",
+};
+
+const buttonStyles = {
+    ...fontStyles,
+    textTransform: "none",
+    fontSize: "16px",
+};
+
 const AuthModal = ({ open, onClose, authType }) => {
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({ username: "", email: "", password: "" });
@@ -33,7 +43,7 @@ const AuthModal = ({ open, onClose, authType }) => {
                     boxShadow: 3,
                 }}
             >
-                <Typography variant="h6" mb={2}>
+                <Typography variant="h6" mb={2} sx={fontStyles}>
                     {authType === "register" ? "Регистрация" : "Вход"}
                 </Typography>
                 <form onSubmit={handleSubmit}>
@@ -56,9 +66,10 @@ const AuthModal = ({ open, onClose, authType }) => {
                             background: "linear-gradient(90deg, #6A11CB 0%, #2575FC 100%)",
                             color: "white",
                             marginTop: 2,
+                            ...buttonStyles,
                             "&:hover": {
                                 background: "linear-gradient(90deg, #5a0faa 0%, #1f6cfb 100%)",
-                            },
+                            }
                         }}
                     >
                         {authType === "register" ? "Зарегистрироваться" : "Войти"}
