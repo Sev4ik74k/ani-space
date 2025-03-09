@@ -19,9 +19,12 @@
     "dotenv": "^16.4.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-multi-carousel": "^2.8.5",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.3.0",
-    "redux-thunk": "^3.1.0"
+    "react-slick": "^0.30.3",
+    "redux-thunk": "^3.1.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

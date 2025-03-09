@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 
-const animeList = Array.from({ length: 60 }, (_, index) => ({
+export const animeList = Array.from({ length: 60 }, (_, index) => ({
     id: index + 1,
     title: `Аниме ${index + 1}`,
     image: "https://www.svgrepo.com/show/508699/landscape-placeholder.svg",
@@ -30,8 +30,8 @@ const Catalog = () => {
     const selectedAnime = animeList.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
     return (
-        <Container maxWidth="lg">
-            <Typography variant="h4" sx={{ marginTop: 4, marginBottom: 2 }}>
+        <Container sx={{ minHeight: "100vh" }}>
+            <Typography variant="h5" sx={{ marginTop: 4, marginBottom: 2 }}>
                 Каталог аниме
             </Typography>
 

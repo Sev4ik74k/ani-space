@@ -12,8 +12,8 @@ const Reviews = () => {
     }, [dispatch]);
 
     return (
-        <Container maxWidth="md" sx={{ height: "100vh" }}>
-            <Typography variant="h4" sx={{ marginTop: 4, marginBottom: 2 }}>
+        <Container maxWidth="md" sx={{ minHeight: "100vh" }}>
+            <Typography variant="h5" sx={{ marginTop: 4, marginBottom: 2 }}>
                 Отзывы пользователей
             </Typography>
 
