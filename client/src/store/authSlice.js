@@ -29,7 +29,7 @@ export const loginUser = createAsyncThunk("user/login", async (userData, { rejec
 });
 
 export const authSlice = createSlice({
-    name: "user",
+    name: "auth",
     initialState: { user: savedUser, token: savedToken, loading: false, error: null },
     reducers: {
         logout: (state) => {

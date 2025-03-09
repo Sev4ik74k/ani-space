@@ -39,7 +39,7 @@ const Catalog = () => {
                 {selectedAnime.map((anime) => (
                     <Grid item xs={6} sm={4} md={3} lg={2} key={anime.id}>
                         <Card sx={{ width: 170, height: 250, position: "relative", mx: "auto", borderRadius: 2, overflow: "hidden" }}>
-                            <CardActionArea sx={{ position: "relative", height: "100%" }}>
+                            <CardActionArea component={'div'} sx={{ position: "relative", height: "100%" }}>
                                 <CardMedia
                                     component="img"
                                     image={anime.image}

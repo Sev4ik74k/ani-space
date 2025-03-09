@@ -21,7 +21,7 @@ const buttonStyles = {
 };
 
 const Header = () => {
-    const { user } = useSelector((state) => state.user);
+    const { user } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     const [openModal, setOpenModal] = useState(false);
     const [authType, setAuthType] = useState("login");
