@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
 import Footer from "./components/Footer";
+import Profile from "./pages/Profile";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/community" element={<Reviews />} />
                 <Route path="/catalog" element={<Catalog />} />
+                <Route path="/profile/:username" element={<Profile />} />
             </Routes>
             <Footer />
         </Router>

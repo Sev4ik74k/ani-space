@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AppBar, Toolbar, Typography, Button, Box, Container, Avatar } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../store/userSlice";
+import { logout } from "../store/authSlice.js";
 import AuthModal from "./AuthModal";
 import logo from "../assets/logo.png";
 import avatar from "../assets/defaul-avatar.png";
@@ -66,7 +66,7 @@ const Header = () => {
                         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                             {user ? (
                                 <>
-                                    <Link to="/profile" style={{ display: "flex", alignItems: "center", color: "inherit" }}>
+                                    <Link to={`/profile/${user.username}`} style={{ display: "flex", alignItems: "center", color: "inherit" }}>
                                         <Avatar src={avatar} alt="User Avatar" sx={{ width: 50, height: 50, marginRight: 1 }} />
                                         <Typography sx={fontStyles}>{user.username}</Typography>
                                     </Link>

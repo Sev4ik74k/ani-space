@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal, Box, TextField, Button, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { registerUser, loginUser } from "../store/userSlice";
+import { registerUser, loginUser } from "../store/authSlice.js";
 
 const fontStyles = {
     fontFamily: "Open Sans, sans-serif",
