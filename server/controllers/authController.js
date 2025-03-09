@@ -19,9 +19,9 @@ exports.register = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = await UserModel.createUser(username, email, hashedPassword);
 
-        const token = jwt.sign({ id: newUser.id, username: newUser.username }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        const token = jwt.sign({ id: newUser.id, username: newUser.username, role: newUser.role }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
-        res.status(201).json({ token, user: { id: newUser.id, username: newUser.username } });
+        res.status(201).json({ token, user: { id: newUser.id, username: newUser.username, role: newUser.role } });
     } catch (error) {
         res.status(500).json({ message: "Ошибка сервера" });
     }
@@ -45,9 +45,9 @@ exports.login = async (req, res) => {
             return res.status(400).json({ message: "Неверный пароль" });
         }
 
-        const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        const token = jwt.sign({ id: user.id, username: user.username, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
-        res.json({ token, user: { id: user.id, username: user.username } });
+        res.json({ token, user: { id: user.id, username: user.username, role: user.role } });
     } catch (error) {
         res.status(500).json({ message: "Ошибка сервера" });
     }

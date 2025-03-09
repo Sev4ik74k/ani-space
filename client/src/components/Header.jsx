@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/authSlice.js";
 import AuthModal from "./AuthModal";
 import logo from "../assets/logo.png";
-import avatar from "../assets/defaul-avatar.png";
+import avatar from "../assets/default-avatar.png";
 import { Link } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 import ListIcon from '@mui/icons-material/List';

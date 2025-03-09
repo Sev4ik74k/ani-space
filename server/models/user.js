@@ -6,7 +6,8 @@ const createUserTable = async () => {
       id SERIAL PRIMARY KEY,
       username VARCHAR(100) UNIQUE NOT NULL,
       email VARCHAR(100) UNIQUE NOT NULL,
-      password VARCHAR(255) NOT NULL
+      password VARCHAR(255) NOT NULL,
+      role VARCHER(10) DEFAULT 'user'
     )
   `;
 
@@ -28,8 +29,8 @@ module.exports = {
 
     async createUser(username, email, hashedPassword) {
         const res = await pool.query(
-            "INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *",
-            [username, email, hashedPassword]
+            "INSERT INTO users (username, email, password, role) VALUES ($1, $2, $3, $4) RETURNING *",
+            [username, email, hashedPassword, "user"]
         );
         return res.rows[0];
     },

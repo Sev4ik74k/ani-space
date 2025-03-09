@@ -5,6 +5,7 @@ const API_URL = "http://localhost:5000/auth";
 
 const savedUser = JSON.parse(localStorage.getItem("user")) || null;
 const savedToken = localStorage.getItem("token") || null;
+const savedRole = savedUser?.role || null;
 
 export const registerUser = createAsyncThunk("user/register", async (userData, { rejectWithValue }) => {
     try {
@@ -30,11 +31,12 @@ export const loginUser = createAsyncThunk("user/login", async (userData, { rejec
 
 export const authSlice = createSlice({
     name: "auth",
-    initialState: { user: savedUser, token: savedToken, loading: false, error: null },
+    initialState: { user: savedUser, token: savedToken, role: savedRole, loading: false, error: null },
     reducers: {
         logout: (state) => {
             state.user = null;
             state.token = null;
+            state.role = null;
             localStorage.removeItem("token");
             localStorage.removeItem("user");
         },
@@ -49,6 +51,7 @@ export const authSlice = createSlice({
                 state.loading = false;
                 state.user = action.payload;
                 state.token = localStorage.getItem("token");
+                state.role = action.payload.role;
             })
             .addCase(registerUser.rejected, (state, action) => {
                 state.loading = false;
@@ -62,6 +65,7 @@ export const authSlice = createSlice({
                 state.loading = false;
                 state.user = action.payload;
                 state.token = localStorage.getItem("token");
+                state.role = action.payload.role;
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.loading = false;
