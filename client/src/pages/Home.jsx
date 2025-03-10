@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Box, TextField, IconButton, Container } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import AnimeCarousel from "../components/AnimeCarousel.jsx";
-import {animeList} from "./Catalog";
 
 const Home = () => {
     const [search, setSearch] = useState("");
@@ -22,7 +21,7 @@ const Home = () => {
                 </IconButton>
             </Box>
 
-            <AnimeCarousel animeList={animeList} title="Онгоинги" />
+            <AnimeCarousel />
         </Container>
     );
 };

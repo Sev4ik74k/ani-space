@@ -3,7 +3,7 @@ import { userApi } from "./userApi";
 import authReducer from "./authSlice";
 import { adminApi } from "./adminApi";
 import { reviewApi } from "./reviewApi";
-
+import { animeApi } from "./animeApi";
 
 export const store = configureStore({
     reducer: {
@@ -11,7 +11,8 @@ export const store = configureStore({
         [userApi.reducerPath]: userApi.reducer,
         [adminApi.reducerPath]: adminApi.reducer,
         [reviewApi.reducerPath]: reviewApi.reducer,
+        [animeApi.reducerPath]: animeApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(userApi.middleware, adminApi.middleware, reviewApi.middleware, reviewApi.middleware),
+        getDefaultMiddleware().concat(userApi.middleware, adminApi.middleware, reviewApi.middleware, reviewApi.middleware, animeApi.middleware,),
 });
