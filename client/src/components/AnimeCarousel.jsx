@@ -52,7 +52,7 @@ const AnimeCarousel = ({ animeList, title }) => {
         infinite: true,
         speed: 500,
         slidesToShow: 5,
-        slidesToScroll: 6,
+        slidesToScroll: 5,
         prevArrow: <CustomPrevArrow />,
         nextArrow: <CustomNextArrow />,
     };

@@ -1,25 +1,19 @@
-import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { Box, Avatar, Typography, Paper, CircularProgress, Container, Button, Stack } from "@mui/material";
-import { fetchUserByUsername } from "../store/userSlice";
+import { useFetchUserByUsernameQuery } from "../store/userApi";
 import avatarPlaceholder from "../assets/default-avatar.png";
 import AnimeList from "../components/AnimeList";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
     const { username } = useParams();
-    const dispatch = useDispatch();
-    const { user, loading, error } = useSelector((state) => state.user);
+    const { data: user, error, isLoading } = useFetchUserByUsernameQuery(username);
     const authUser = useSelector((state) => state.auth.user);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        dispatch(fetchUserByUsername(username));
-    }, [dispatch, username]);
-
-    if (loading) {
+    if (isLoading) {
         return (
             <Box sx={{ textAlign: "center", mt: 4 }}>
                 <CircularProgress />
@@ -30,14 +24,16 @@ const Profile = () => {
     if (error) {
         return (
             <Box sx={{ textAlign: "center", mt: 4 }}>
-                <Typography variant="h6" color="error">{error}</Typography>
+                <Typography variant="h6" color="error">
+                    {error?.data || "Ошибка загрузки профиля"}
+                </Typography>
             </Box>
         );
     }
 
     return (
         <Container sx={{ minHeight: "100vh" }}>
-            <Paper elevation={3} sx={{ maxWidth: '100%', margin: "20px auto", padding: 3, textAlign: "center" }}>
+            <Paper elevation={3} sx={{ maxWidth: "100%", margin: "20px auto", padding: 3, textAlign: "center" }}>
                 <Avatar
                     src={user?.avatar || avatarPlaceholder}
                     alt={user?.username}

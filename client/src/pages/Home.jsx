@@ -17,7 +17,7 @@ const Home = () => {
                     onChange={(e) => setSearch(e.target.value)}
                     sx={{ width: "50%" }}
                 />
-                <IconButton color="primary" sx={{ ml: 1 }}>
+                <IconButton color="primary" sx={{ ml: 1, width: '50px', height: '50px' }}>
                     <SearchIcon />
                 </IconButton>
             </Box>

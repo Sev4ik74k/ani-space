@@ -31,74 +31,76 @@ const Catalog = () => {
 
     return (
         <Container sx={{ minHeight: "100vh" }}>
-            <Typography variant="h5" sx={{ marginTop: 4, marginBottom: 2 }}>
-                Каталог аниме
-            </Typography>
+            <Box sx={{ margin: "20px auto", padding: 2, backgroundColor: "#f5f5f5", borderRadius: 3, }}>
+                <Typography variant="h5" sx={{ textAlign: "center" }} mb={2}>
+                    Каталог аниме
+                </Typography>
 
-            <Grid container spacing={2} justifyContent="center">
-                {selectedAnime.map((anime) => (
-                    <Grid item xs={6} sm={4} md={3} lg={2} key={anime.id}>
-                        <Card sx={{ width: 170, height: 250, position: "relative", mx: "auto", borderRadius: 2, overflow: "hidden" }}>
-                            <CardActionArea component={'div'} sx={{ position: "relative", height: "100%" }}>
-                                <CardMedia
-                                    component="img"
-                                    image={anime.image}
-                                    alt={anime.title}
-                                    sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-                                />
+                <Grid container spacing={2} justifyContent="center">
+                    {selectedAnime.map((anime) => (
+                        <Grid item xs={6} sm={4} md={3} lg={2} key={anime.id}>
+                            <Card sx={{ width: 170, height: 250, position: "relative", mx: "auto", borderRadius: 2, overflow: "hidden" }}>
+                                <CardActionArea component={'div'} sx={{ position: "relative", height: "100%" }}>
+                                    <CardMedia
+                                        component="img"
+                                        image={anime.image}
+                                        alt={anime.title}
+                                        sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                    />
 
-                                <Tooltip title={anime.description} arrow>
-                                    <IconButton
+                                    <Tooltip title={anime.description} arrow>
+                                        <IconButton
+                                            sx={{
+                                                position: "absolute",
+                                                top: 5,
+                                                left: 5,
+                                                color: "rgba(0,0,0,0.6)",
+                                            }}
+                                        >
+                                            <InfoIcon fontSize="small" />
+                                        </IconButton>
+                                    </Tooltip>
+
+                                    <Box
                                         sx={{
                                             position: "absolute",
-                                            top: 5,
-                                            left: 5,
-                                            color: "rgba(0,0,0,0.6)",
+                                            bottom: 0,
+                                            width: "100%",
+                                            background: "rgba(0, 0, 0, 0.6)",
+                                            color: "#fff",
+                                            textAlign: "center",
+                                            padding: "3px 0",
+                                            lineHeight: 1,
                                         }}
                                     >
-                                        <InfoIcon fontSize="small" />
-                                    </IconButton>
-                                </Tooltip>
+                                        <Typography
+                                            variant="body2"
+                                            sx={{
+                                                fontWeight: "bold",
+                                                fontSize: "0.9rem",
+                                                overflow: "hidden",
+                                                whiteSpace: "nowrap",
+                                                textOverflow: "ellipsis",
+                                                display: "block",
+                                            }}
+                                        >
+                                            {anime.title}
+                                        </Typography>
+                                    </Box>
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
 
-                                <Box
-                                    sx={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        width: "100%",
-                                        background: "rgba(0, 0, 0, 0.6)",
-                                        color: "#fff",
-                                        textAlign: "center",
-                                        padding: "3px 0",
-                                        lineHeight: 1,
-                                    }}
-                                >
-                                    <Typography
-                                        variant="body2"
-                                        sx={{
-                                            fontWeight: "bold",
-                                            fontSize: "0.9rem",
-                                            overflow: "hidden",
-                                            whiteSpace: "nowrap",
-                                            textOverflow: "ellipsis",
-                                            display: "block",
-                                        }}
-                                    >
-                                        {anime.title}
-                                    </Typography>
-                                </Box>
-                            </CardActionArea>
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
-
-            <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 4 }}>
-                <Pagination
-                    count={Math.ceil(animeList.length / ITEMS_PER_PAGE)}
-                    page={page}
-                    onChange={(_, value) => setPage(value)}
-                    shape="rounded"
-                />
+                <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb: 4 }}>
+                    <Pagination
+                        count={Math.ceil(animeList.length / ITEMS_PER_PAGE)}
+                        page={page}
+                        onChange={(_, value) => setPage(value)}
+                        shape="rounded"
+                    />
+                </Box>
             </Box>
         </Container>
     );

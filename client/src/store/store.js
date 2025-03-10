@@ -1,12 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./authSlice.js";
-import reviewReducer from "./reviewSlice";
-import userReducer from "./userSlice.js";
+import { userApi } from "./userApi";
+import authReducer from "./authSlice";
+import { adminApi } from "./adminApi";
+import { reviewApi } from "./reviewApi";
+
 
 export const store = configureStore({
     reducer: {
         auth: authReducer,
-        reviews: reviewReducer,
-        user: userReducer,
+        [userApi.reducerPath]: userApi.reducer,
+        [adminApi.reducerPath]: adminApi.reducer,
+        [reviewApi.reducerPath]: reviewApi.reducer,
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(userApi.middleware, adminApi.middleware, reviewApi.middleware, reviewApi.middleware),
 });

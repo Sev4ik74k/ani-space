@@ -7,7 +7,7 @@ const createUserTable = async () => {
       username VARCHAR(100) UNIQUE NOT NULL,
       email VARCHAR(100) UNIQUE NOT NULL,
       password VARCHAR(255) NOT NULL,
-      role VARCHER(10) DEFAULT 'user'
+      role VARCHAR(10) DEFAULT 'user'
     )
   `;
 
