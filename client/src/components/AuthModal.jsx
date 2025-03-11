@@ -38,7 +38,7 @@ const AuthModal = ({ open, onClose, authType }) => {
                     width: 400,
                     margin: "100px auto",
                     padding: 4,
-                    bgColor: "white",
+                    bgcolor: "white",
                     borderRadius: 2,
                     boxShadow: 3,
                 }}
