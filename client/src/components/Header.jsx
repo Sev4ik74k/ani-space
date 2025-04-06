@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/authSlice.js";
 import AuthModal from "./AuthModal";
 import logo from "../assets/logo.png";
-import avatar from "../assets/default-avatar.png";
 import { Link } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 import ListIcon from '@mui/icons-material/List';
@@ -67,7 +66,11 @@ const Header = () => {
                             {user ? (
                                 <>
                                     <Link to={`/profile/${user.username}`} style={{ display: "flex", alignItems: "center", color: "inherit" }}>
-                                        <Avatar src={avatar} alt="User Avatar" sx={{ width: 50, height: 50, marginRight: 1 }} />
+                                        <Avatar
+                                            src={`http://localhost:5000/${user.avatar}`}
+                                            alt="User Avatar"
+                                            sx={{ width: 50, height: 50, marginRight: 1 }}
+                                        />
                                         <Typography sx={fontStyles}>{user.username}</Typography>
                                     </Link>
                                     <Button
@@ -78,9 +81,8 @@ const Header = () => {
                                         Выйти
                                         <LogoutIcon fontSize="small" sx={{ marginLeft: 1 }} />
                                     </Button>
-
-
                                 </>
+
                             ) : (
                                 <>
                                     <Button color="inherit" onClick={() => { setAuthType("login"); setOpenModal(true); }} sx={buttonStyles}>

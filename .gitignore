@@ -28,4 +28,7 @@ dist-ssr
 server/.env
 bot/.env
 
+server/uploads
+server/prisma/dev.db
+
 .idea/

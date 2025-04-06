@@ -50,7 +50,7 @@ const Catalog = () => {
                                         <CardActionArea component={'div'} sx={{ position: "relative", height: "100%" }}>
                                             <CardMedia
                                                 component="img"
-                                                image={anime.image_url}
+                                                image={anime.imageUrl}
                                                 alt={anime.title}
                                                 sx={{ width: "100%", height: "100%", objectFit: "cover" }}
                                             />
