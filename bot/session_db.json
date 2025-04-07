@@ -1,0 +1,37 @@
+{
+  "sessions": [
+    {
+      "id": "457097867:457097867",
+      "data": {
+        "state": null,
+        "animeTitle": "Атака титанов",
+        "rating": 9,
+        "comment": "Имба"
+      }
+    },
+    {
+      "id": "208562836:208562836",
+      "data": {
+        "state": "waiting_for_title"
+      }
+    },
+    {
+      "id": "866785794:866785794",
+      "data": {
+        "state": null,
+        "animeTitle": "😐",
+        "rating": 1,
+        "comment": "😐"
+      }
+    },
+    {
+      "id": "935302537:935302537",
+      "data": {
+        "state": null,
+        "animeTitle": "токийский гуль",
+        "rating": 10,
+        "comment": "ЗАЕБИСЬ ТОЛЬКО ПАПЫ У МЕНЯ НЕТ, ПОЭТОМУ ТУТ"
+      }
+    }
+  ]
+}
