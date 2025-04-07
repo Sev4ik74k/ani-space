@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Box, Avatar, Typography, Paper, CircularProgress, Container, Button, Stack } from "@mui/material";
 import { useFetchUserByUsernameQuery } from "../store/userApi";
-import avatarPlaceholder from "../assets/default-avatar.png";
 import AnimeList from "../components/AnimeList";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
@@ -35,7 +34,7 @@ const Profile = () => {
         <Container sx={{ minHeight: "100vh" }}>
             <Paper elevation={3} sx={{ maxWidth: "100%", margin: "20px auto", padding: 3, textAlign: "center" }}>
                 <Avatar
-                    src={user?.avatar || avatarPlaceholder}
+                    src={`http://localhost:5000/${user.avatar}`}
                     alt={user?.username}
                     sx={{ width: 100, height: 100, margin: "0 auto" }}
                 />
